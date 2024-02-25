@@ -7,6 +7,7 @@ class ForecastPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        const SizedBox(height: 12),
         Text("Right now", style: Theme.of(context).textTheme.titleLarge),
       ],
     );
