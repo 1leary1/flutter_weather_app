@@ -5,6 +5,10 @@ class ForecastPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Row(
+      children: [
+        Text("Right now", style: Theme.of(context).textTheme.titleLarge),
+      ],
+    );
   }
 }

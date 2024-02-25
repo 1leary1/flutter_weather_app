@@ -4,10 +4,12 @@ ThemeData lightMode = ThemeData(
     brightness: Brightness.light,
     colorScheme: ColorScheme.light(
       background: Colors.grey.shade300,
-      primary: Colors.grey.shade200,
-      secondary: Colors.grey.shade400,
+      primary: Colors.pink.shade700,
+      secondary: Colors.grey.shade600,
     ),
-    textTheme: ThemeData.light().textTheme.apply(
-          bodyColor: Colors.grey[800],
-          displayColor: Colors.black,
-        ));
+    textTheme: const TextTheme(
+      titleLarge: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+      ),
+    ));
