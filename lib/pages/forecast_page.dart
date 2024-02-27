@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:weater_app/components/currernt_temp.dart';
 
 class ForecastPage extends StatelessWidget {
   const ForecastPage({super.key});
@@ -14,16 +15,14 @@ class ForecastPage extends StatelessWidget {
         const SizedBox(height: 12),
         CarouselSlider(
           items: [
-            Container(
-              color: Colors.amber,
-            ),
+            CurrentTemp(),
             Container(
               color: Colors.pink,
             ),
           ],
           options: CarouselOptions(
             enlargeCenterPage: true,
-            height: 200,
+            height: 250,
             enableInfiniteScroll: false,
             initialPage: 0,
           ),
