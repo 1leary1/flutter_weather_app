@@ -1,6 +1,8 @@
+//import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:weater_app/components/currernt_temp.dart';
+import 'package:weater_app/components/my_page_view.dart';
 
 class ForecastPage extends StatelessWidget {
   const ForecastPage({super.key});

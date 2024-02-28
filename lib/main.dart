@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weater_app/pages/home_page.dart';
+import 'pages/home_page.dart';
 import 'theme/light_mode.dart';
 import 'theme/dark_mode.dart';
 
