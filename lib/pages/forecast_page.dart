@@ -1,11 +1,38 @@
 //import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:weater_app/api/model/weather_model.dart';
 import 'package:weater_app/components/currernt_temp.dart';
-import 'package:weater_app/components/my_page_view.dart';
 
-class ForecastPage extends StatelessWidget {
+import '../api/request/get_weather.dart';
+
+class ForecastPage extends StatefulWidget {
   const ForecastPage({super.key});
+
+  @override
+  State<ForecastPage> createState() => _ForecastPageState();
+}
+
+class _ForecastPageState extends State<ForecastPage> {
+  final _request = WeeatherRequest('25e752346fd84b08b2082324242702');
+  Weather? _weather;
+
+  _fetchWeather() async {
+    try {
+      final weather = await _request.getWeather("Omsk");
+      setState(() {
+        _weather = weather;
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchWeather();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +44,9 @@ class ForecastPage extends StatelessWidget {
         const SizedBox(height: 12),
         CarouselSlider(
           items: [
-            CurrentTemp(),
+            CurrentTemp(
+              weather: _weather,
+            ),
             Container(
               color: Colors.pink,
             ),
