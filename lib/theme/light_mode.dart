@@ -21,5 +21,10 @@ ThemeData lightMode = ThemeData(
       fontSize: 24,
       color: Colors.grey,
     ),
+    displayLarge: TextStyle(
+      fontSize: 28,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
   ),
 );

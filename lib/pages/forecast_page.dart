@@ -5,7 +5,7 @@ import 'package:weater_app/api/model/current_weather_model.dart';
 import 'package:weater_app/components/current_stats.dart';
 import 'package:weater_app/components/currernt_temp.dart';
 
-import '../api/request/get_weather.dart';
+import '../api/request/get_current_weather.dart';
 
 class ForecastPage extends StatefulWidget {
   const ForecastPage({super.key});
@@ -15,12 +15,12 @@ class ForecastPage extends StatefulWidget {
 }
 
 class _ForecastPageState extends State<ForecastPage> {
-  final _request = WeeatherRequest('25e752346fd84b08b2082324242702');
+  final _request = CurrentWeeatherRequest('25e752346fd84b08b2082324242702');
   CurrentWeather? _weather;
 
   _fetchWeather() async {
     try {
-      final weather = await _request.getWeather("Omsk");
+      final weather = await _request.getCurrentWeather("Omsk");
       setState(() {
         _weather = weather;
       });
@@ -59,7 +59,12 @@ class _ForecastPageState extends State<ForecastPage> {
             enableInfiniteScroll: false,
             initialPage: 0,
           ),
-        )
+        ),
+        const SizedBox(height: 12),
+        //тут надо индикатор
+        Text("By the clock", style: Theme.of(context).textTheme.titleLarge),
+        const SizedBox(height: 12),
+        Text("This week", style: Theme.of(context).textTheme.titleLarge),
       ],
     );
   }
