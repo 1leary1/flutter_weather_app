@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:weater_app/api/model/current_weather_model.dart';
 import 'package:weater_app/components/info_text.dart';
 
 class CurrentStats extends StatelessWidget {
-  const CurrentStats({super.key});
+  final CurrentWeather? weather;
+
+  const CurrentStats({super.key, required this.weather});
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +29,35 @@ class CurrentStats extends StatelessWidget {
           child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
-                    children: [InfoText(title: "Tittle", subtitle: "Subtitle")],
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InfoText(
+                        title: "Wind",
+                        subtitle:
+                            '${weather?.windDir ?? ''} ${weather?.windSpeed ?? 'No data'} km/h',
+                      ),
+                      InfoText(
+                        title: "Humidity",
+                        subtitle: '${weather?.humidity.round() ?? 'No data'}%',
+                      ),
+                    ],
                   ),
                   Column(
-                    children: [Text("dsfdfs"), Text("data")],
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InfoText(
+                        title: "Pressure",
+                        subtitle:
+                            '${weather?.pressure.round() ?? 'No data'} mb',
+                      ),
+                      InfoText(
+                        title: "Clouds",
+                        subtitle: '${weather?.clouds.round() ?? 'No data'}%',
+                      ),
+                    ],
                   ),
                 ],
               ),

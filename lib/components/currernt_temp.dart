@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:weater_app/api/model/weather_model.dart';
+import 'package:weater_app/api/model/current_weather_model.dart';
 
 class CurrentTemp extends StatelessWidget {
   final CurrentWeather? weather;
