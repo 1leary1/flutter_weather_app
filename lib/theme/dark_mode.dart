@@ -13,6 +13,13 @@ ThemeData darkMode = ThemeData(
       fontSize: 32,
       fontWeight: FontWeight.bold,
     ),
-    displayMedium: TextStyle(fontSize: 24, color: Colors.white),
+    displayMedium: TextStyle(
+      fontSize: 24,
+      color: Colors.white,
+    ),
+    titleMedium: TextStyle(
+      fontSize: 24,
+      color: Colors.grey,
+    ),
   ),
 );

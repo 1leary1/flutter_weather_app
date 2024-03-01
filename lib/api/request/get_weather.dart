@@ -4,17 +4,17 @@ import '../model/weather_model.dart';
 import 'package:http/http.dart' as http;
 
 class WeeatherRequest {
-  static const URL = "http://api.weatherapi.com/v1/current.json";
-  final String api_key;
+  static const url = "http://api.weatherapi.com/v1/current.json";
+  final String apiKey;
 
-  WeeatherRequest(this.api_key);
+  WeeatherRequest(this.apiKey);
 
-  Future<Weather> getWeather(String cityName) async {
+  Future<CurrentWeather> getWeather(String cityName) async {
     final response =
-        await http.get(Uri.parse('$URL?key=$api_key&q=$cityName&aqi=yes'));
+        await http.get(Uri.parse('$url?key=$apiKey&q=$cityName&aqi=yes'));
 
     if (response.statusCode == 200) {
-      return Weather.fromJson(jsonDecode(response.body));
+      return CurrentWeather.fromJson(jsonDecode(response.body));
     } else {
       throw Exception('Server is not response');
     }
