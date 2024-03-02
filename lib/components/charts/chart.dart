@@ -3,7 +3,7 @@ import 'package:weater_app/components/charts/chart_item.dart';
 import '../../api/model/hour_weather_model.dart';
 
 class Chart extends StatelessWidget {
-  final List<HourWeather> weatherData;
+  final HourWeather? weatherData;
   const Chart({super.key, required this.weatherData});
 
   @override
@@ -12,9 +12,12 @@ class Chart extends StatelessWidget {
       height: 150,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: weatherData.length,
-        itemBuilder: (context, index) =>
-            ChartItem(height: weatherData[index].temperature),
+        itemCount: weatherData?.hours.length,
+        itemBuilder: (context, index) => ChartItem(
+          index: index,
+          height: 0.5,
+          weatherData: weatherData,
+        ),
       ),
     );
   }
